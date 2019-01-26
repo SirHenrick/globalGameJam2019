@@ -188,9 +188,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fa6ad89bfdbed4c9c2a5872757d1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  itemLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  cabinetLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   player: {fileID: 3794182622239238344}
 --- !u!1 &3794182622646528731
 GameObject:
