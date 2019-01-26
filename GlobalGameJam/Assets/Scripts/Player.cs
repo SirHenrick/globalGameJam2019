@@ -63,7 +63,14 @@ public class Player : MonoBehaviour
         }
         else if (heldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
         {
-            heldItem = pickUpZone.NearestItem;
+            var cabinet = pickUpZone.NearestItem.GetComponent<Cabinet>();
+            if (cabinet != null)
+            {
+                var newItem = Instantiate(cabinet.resource);
+                heldItem = newItem;
+            }
+            else heldItem = pickUpZone.NearestItem;
+
         }
     }
 }
