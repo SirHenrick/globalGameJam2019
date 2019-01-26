@@ -41,18 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Held
-    uniqueID: 1045599727
-    locked: 0
   - name: Background
     uniqueID: 2516226151
     locked: 0
-  - name: Walls
-    uniqueID: 2446002465
+  - name: Outside
+    uniqueID: 748456803
+    locked: 0
+  - name: WallsBehind
+    uniqueID: 3430377677
     locked: 0
   - name: Player
     uniqueID: 1670802719
     locked: 0
-  - name: countertops
-    uniqueID: 3430377677
+  - name: WallsInFront
+    uniqueID: 2446002465
+    locked: 0
+  - name: Held
+    uniqueID: 1045599727
     locked: 0
