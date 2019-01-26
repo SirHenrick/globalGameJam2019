@@ -7,13 +7,21 @@ public class Player : MonoBehaviour
 {
     const string inputHorizontalMovement = "Horizontal Movement";
     const string inputVerticalMovement = "Vertical Movement";
+    const string inputPickUp = "Pick Up";
 
     Rewired.Player player;
     float horizontalAxis = 0f;
     float verticalAxis = 0f;
+    bool pressedPickUp = false;
+    bool hasItem = false;
+    Vector2 facing = Vector2.zero;
 
     // Attributes
-    float speed = 10f;
+    float speed = 5f;
+    float pickUpDistance = 1f;
+
+    public SpriteRenderer spriteRenderer;
+    public Transform pickUpZone;
 
     Rigidbody2D body;
     // Start is called before the first frame update
@@ -29,12 +37,15 @@ public class Player : MonoBehaviour
         horizontalAxis = player.GetAxis(inputHorizontalMovement);
         verticalAxis = player.GetAxis(inputVerticalMovement);
 
-        if (horizontalAxis != 0)
-            Debug.Log(horizontalAxis);
+        pressedPickUp = player.GetButtonDown(inputPickUp);
 
-        if (verticalAxis != 0)
-            Debug.Log(verticalAxis);
+        var direction = new Vector2(horizontalAxis, verticalAxis).normalized;
+        body.velocity = direction * speed;
 
-        body.velocity = new Vector2(horizontalAxis, verticalAxis).normalized * speed;
+        if (!direction.Equals(Vector2.zero))
+            facing = direction;
+
+        pickUpZone.localPosition = facing * pickUpDistance;
     }
+
 }
