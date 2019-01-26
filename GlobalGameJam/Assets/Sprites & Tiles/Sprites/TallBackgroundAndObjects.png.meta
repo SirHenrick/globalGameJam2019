@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 9c8ad42f8ef49dd479de1ba3c350fcb7
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BackgroundAndObjects_0
+    21300002: BackgroundAndObjects_1
+    21300004: BackgroundAndObjects_2
+    21300006: BackgroundAndObjects_3
+    21300008: BackgroundAndObjects_4
+    21300010: BackgroundAndObjects_5
+    21300012: BackgroundAndObjects_6
+    21300014: BackgroundAndObjects_7
+    21300016: BackgroundAndObjects_8
+    21300018: BackgroundAndObjects_9
+    21300020: BackgroundAndObjects_10
+    21300022: BackgroundAndObjects_11
+    21300024: BackgroundAndObjects_12
+    21300026: BackgroundAndObjects_13
+    21300028: BackgroundAndObjects_14
+    21300030: BackgroundAndObjects_15
+    21300032: BackgroundAndObjects_16
+    21300034: BackgroundAndObjects_17
+    21300036: BackgroundAndObjects_18
+    21300038: BackgroundAndObjects_19
+    21300040: BackgroundAndObjects_20
+    21300042: BackgroundAndObjects_21
+    21300044: BackgroundAndObjects_22
+    21300046: BackgroundAndObjects_23
+    21300048: BackgroundAndObjects_24
+    21300050: BackgroundAndObjects_25
+    21300052: BackgroundAndObjects_26
+    21300054: BackgroundAndObjects_27
+    21300056: BackgroundAndObjects_28
+    21300058: BackgroundAndObjects_29
+    21300060: BackgroundAndObjects_30
+    21300062: BackgroundAndObjects_31
+    21300064: BackgroundAndObjects_32
+    21300066: BackgroundAndObjects_33
+    21300068: BackgroundAndObjects_34
+    21300070: BackgroundAndObjects_35
+    21300072: BackgroundAndObjects_36
+    21300074: BackgroundAndObjects_37
+    21300076: BackgroundAndObjects_38
+    21300078: BackgroundAndObjects_39
+    21300080: BackgroundAndObjects_40
+    21300082: BackgroundAndObjects_41
+    21300084: BackgroundAndObjects_42
+    21300086: BackgroundAndObjects_43
+    21300088: BackgroundAndObjects_44
+    21300090: BackgroundAndObjects_45
+    21300092: BackgroundAndObjects_46
+    21300094: BackgroundAndObjects_47
+    21300096: BackgroundAndObjects_48
+    21300098: BackgroundAndObjects_49
+    21300100: BackgroundAndObjects_50
+    21300102: BackgroundAndObjects_51
+    21300104: BackgroundAndObjects_52
+    21300106: BackgroundAndObjects_53
+    21300108: BackgroundAndObjects_54
+    21300110: BackgroundAndObjects_55
+    21300112: BackgroundAndObjects_56
+    21300114: TallBackgroundAndObjects_4
+    21300116: TallBackgroundAndObjects_5
+    21300118: TallBackgroundAndObjects_6
+    21300120: TallBackgroundAndObjects_7
+    21300122: TallBackgroundAndObjects_8
+    21300124: TallBackgroundAndObjects_9
+    21300126: TallBackgroundAndObjects_16
+    21300128: TallBackgroundAndObjects_17
+    21300130: TallBackgroundAndObjects_18
+    21300132: TallBackgroundAndObjects_19
+    21300134: TallBackgroundAndObjects_20
+    21300136: TallBackgroundAndObjects_29
+    21300138: TallBackgroundAndObjects_30
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06245e85d2b8b45408ad2ef72708bb63
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e0e3cae84fb984e98a51652d658bb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 589979529a49dec45a037094f8582969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb9d7b42bcc72343ac36bb8c42e2c9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52d9383f2ad55c449cf00853aede43a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 116
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb84acdc20092e47a08261c4587a889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 84
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c29e6b28c7f3e548bba8c0f620608bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 84
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d356c4cd4d23cb84ca7fedf74f27ab01
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_18
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 84
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f569c01e3158754e99ae14719ce435e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 84
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c3953a91da56748afbf7213ef74c19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 84
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd612d7485b85c4297b503f2824727c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 52
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8b3e3311712d846b72bb1af43025c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TallBackgroundAndObjects_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 52
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10628e85981ace94ba151b4e5107c6ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6232e3f8e53c64a469a72b639ac8e50b
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

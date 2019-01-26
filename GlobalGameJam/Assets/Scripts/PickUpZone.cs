@@ -30,7 +30,7 @@ public class PickUpZone : MonoBehaviour
             var position = collider.transform.position;
             if (nearestItem == null)
                 nearestItem = collider.gameObject;
-            else if (Vector2.Distance(position, player.position) >= Vector2.Distance(nearestItem.transform.position, player.position))
+            else if (Vector2.Distance(position, player.position) <= Vector2.Distance(nearestItem.transform.position, player.position))
                 nearestItem = collider.gameObject;
         }
 
