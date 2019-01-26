@@ -16,9 +16,4 @@ public class PickUpZone : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerStay2D(Collider other)
-    {
-        
-    }
 }
