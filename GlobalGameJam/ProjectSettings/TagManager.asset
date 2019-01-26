@@ -44,6 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 2516226151
     locked: 0
-  - name: Foreground
+  - name: Walls
     uniqueID: 2446002465
+    locked: 0
+  - name: countertops
+    uniqueID: 3430377677
+    locked: 0
+  - name: Player
+    uniqueID: 1670802719
     locked: 0
