@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     bool pressedPickUp = false;
     private bool isThrowing;
     private int currentThrowFrame;
+    Recipe garbageRecipe;
     public GameObject HeldItem { get; private set; } = null;
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
 
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        garbageRecipe = Recipes.instance.garbage;
+
         player = ReInput.players.GetSystemPlayer();
         body = GetComponent<Rigidbody2D>();
         animator = spriteRenderer.GetComponent<Animator>();
@@ -124,5 +127,12 @@ public class Player : MonoBehaviour
             }
         }
         throwSpriteRenderer.sprite = throwAnimation[currentThrowFrame];
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var dish = Instantiate(garbageRecipe.result);
+        dish.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+        dish.GetComponent<Rigidbody2D>().AddForce(Vector2.up * .75f, ForceMode2D.Impulse);
     }
 }
