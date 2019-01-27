@@ -151,21 +151,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxPlayer: {fileID: 1338203790}
   throwSound: {fileID: 8300000, guid: 57df243fd8e9d7540a162b563280d314, type: 3}
-  dogSound: {fileID: 8300000, guid: 2d1b84e37285003409df1685ad95b2f1, type: 3}
   garbageSound: {fileID: 8300000, guid: a27dd62d50060a845b77c130ebde2d3a, type: 3}
   spriteRenderer: {fileID: 3794182622646528729}
   pickUpZone: {fileID: 3794182622290345596}
   throwEffect: {fileID: 2018352682}
   throwAnimation:
-  - {fileID: 21300014, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300012, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300010, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300008, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300006, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300004, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300002, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300000, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
-  - {fileID: 21300016, guid: 801c012e63c2bfa4a903e8df61b9199f, type: 3}
+  - {fileID: 21300000, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300002, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300004, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300006, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300008, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300010, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300012, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300014, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
+  - {fileID: 21300016, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9, type: 3}
 --- !u!61 &3794182622239238345
 BoxCollider2D:
   m_ObjectHideFlags: 0

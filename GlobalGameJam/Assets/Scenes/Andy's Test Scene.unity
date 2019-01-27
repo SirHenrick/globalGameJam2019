@@ -10402,6 +10402,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300016, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300002, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300004, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300006, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300008, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300010, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300012, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
+    - target: {fileID: 3794182622239238350, guid: 39abd5bbaa1a73547a914daaf2fcfec8,
+        type: 3}
+      propertyPath: throwAnimation.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300014, guid: 34c8d4a7a18d9bb438e334fd4c6ba1d9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39abd5bbaa1a73547a914daaf2fcfec8, type: 3}
 --- !u!1 &1430565191
