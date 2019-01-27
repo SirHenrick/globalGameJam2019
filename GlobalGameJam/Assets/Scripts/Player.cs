@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         
         if (Mathf.Abs(direction.x) > Mathf.Epsilon)
         {
-            transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
+            spriteRenderer.transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
         }
         animator.SetBool("isWalking", direction.x >= Mathf.Epsilon || direction.x <= -Mathf.Epsilon);
         animator.SetBool("isWalkingUp", direction.y >= Mathf.Epsilon);
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
                 heldItem.transform.position = pickUpZone.transform.position;
                 heldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 heldItem.GetComponent<Rigidbody2D>().AddForce(facing * throwForce, ForceMode2D.Impulse);
-                heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
                 heldItem = null;
             }
         }
@@ -94,5 +94,7 @@ public class Player : MonoBehaviour
             else heldItem = pickUpZone.NearestItem;
 
         }
+        animator.SetBool("isCarrying", heldItem != null);
+
     }
 }
