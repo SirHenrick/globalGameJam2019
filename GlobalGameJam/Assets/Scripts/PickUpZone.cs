@@ -6,7 +6,10 @@ public class PickUpZone : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     float spriteTimer = 0f;
-    float spriteAppearDuration = .15f;
+
+    // Attributes
+    const float spriteAppearDuration = .15f;
+    const float grabSize = 1.5f;
 
     public LayerMask itemLayerMask;
     public LayerMask cabinetLayerMask;
@@ -21,8 +24,8 @@ public class PickUpZone : MonoBehaviour
 
     void Update()
     {
-        Collider2D[] itemHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, itemLayerMask);
-        Collider2D[] cabinetHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, cabinetLayerMask);
+        Collider2D[] itemHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale * grabSize, 0, itemLayerMask);
+        Collider2D[] cabinetHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale * grabSize, 0, cabinetLayerMask);
 
         if (itemHitColliders.Length > 0)
             NearestItem = GetNearestItem(itemHitColliders);

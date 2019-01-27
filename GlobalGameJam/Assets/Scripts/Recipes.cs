@@ -9,7 +9,7 @@ public class Recipes : Persistent<Recipes>
     List<Recipe> medium;
     List<Recipe> hard;
 
-    float overallTime = 0f;
+    float overallTime = 60f * 5f;
     float timeSinceRequest = 0f;
 
     // Attributes
@@ -17,8 +17,8 @@ public class Recipes : Persistent<Recipes>
     const float easyToMediumTime = minute * 4.5f;
     const float mediumToHard = minute * 4f;
     const float easyTimeInterval = 5f;
-    const float mediumTimeInterval = 55f;
-    const float hardTimeInterval = 50f;
+    const float mediumTimeInterval = 5f;
+    const float hardTimeInterval = 5f;
 
     public List<Recipe> requests;
 
@@ -44,7 +44,6 @@ public class Recipes : Persistent<Recipes>
             friedEgg,
             friedEgg,
             friedEgg,
-            iceCream,
             iceCream,
             noodle
         };
