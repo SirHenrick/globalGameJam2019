@@ -25,7 +25,7 @@ public class Recipes : Persistent<Recipes>
     const float easyToMediumTime = minute * 1f;
     const float mediumToHard = minute * 3f;
     const float hardToImpossible = minute * 5f;
-    const float easyTimeInterval = 3f;
+    const float easyTimeInterval = 10f;
     const float mediumTimeInterval = 9f;
     const float hardTimeInterval = 8f;
     const float impossibleTimeInterval = 6f;
