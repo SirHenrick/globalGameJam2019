@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
     public AudioSource sfxPlayer;
     public AudioClip throwSound;
+    public AudioClip garbageSound;
 
     // Attributes
     float speed = 7f;
@@ -142,6 +143,8 @@ public class Player : MonoBehaviour
             var dish = Instantiate(garbageRecipe.result);
             dish.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
             dish.GetComponent<Rigidbody2D>().AddForce(Vector2.up * .5f, ForceMode2D.Impulse);
+
+            sfxPlayer.PlayOneShot(garbageSound);
         }
     }
 }
