@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Recipes : Persistent<Recipes>
 {
@@ -41,9 +42,12 @@ public class Recipes : Persistent<Recipes>
     public Transform canvas;
     public Vector2 doggoSpawnPoint;
     public GameObject doggo;
+    public Text score; 
 
     void Start()
     {
+        var canvasTransform = GameObject.Find("Canvas");
+
         requests = new List<Recipe>()
         {
             friedEgg
@@ -100,94 +104,103 @@ public class Recipes : Persistent<Recipes>
 
     void Update()
     {
-        if (overallTime < easyToMediumTime)
+        if (canvas != null)
         {
-            CreateRequest(easyTimeInterval, easy, "easy");
-        }
-        else if (overallTime < mediumToHard)
-        {
-            if (!doggoMedium)
+            if (overallTime < easyToMediumTime)
             {
-                var dog = Instantiate(doggo);
-                dog.transform.position = doggoSpawnPoint;
-                doggoMedium = true;
+                CreateRequest(easyTimeInterval, easy, "easy");
+            }
+            else if (overallTime < mediumToHard)
+            {
+                if (!doggoMedium)
+                {
+                    var dog = Instantiate(doggo);
+                    dog.transform.position = doggoSpawnPoint;
+                    doggoMedium = true;
+                }
+
+                CreateRequest(mediumTimeInterval, medium, "medium");
+            }
+            else if (overallTime < hardToImpossible)
+            {
+                if (!doggoHard)
+                {
+                    var dog = Instantiate(doggo);
+                    dog.transform.position = doggoSpawnPoint;
+                    doggoHard = true;
+                }
+
+                CreateRequest(hardTimeInterval, hard, "hard");
+            }
+            else
+            {
+                if (!doggoImpossible)
+                {
+                    var dog = Instantiate(doggo);
+                    dog.transform.position = doggoSpawnPoint;
+                    doggoImpossible = true;
+                }
+
+                CreateRequest(impossibleTimeInterval, impossible, "impossible");
             }
 
-            CreateRequest(mediumTimeInterval, medium, "medium");
-        }
-        else if (overallTime < hardToImpossible)
-        {
-            if (!doggoHard)
+            for (var i = 0; i < 7; i++)
             {
-                var dog = Instantiate(doggo);
-                dog.transform.position = doggoSpawnPoint;
-                doggoHard = true;
+                var order = canvas.GetChild(i).gameObject;
+
+                if (i < requests.Count)
+                {
+                    order.SetActive(true);
+                    var recipe = requests[i];
+                    var index = 0;
+                    switch (recipe.result.name)
+                    {
+                        case "Fried Egg":
+                            index = 0;
+                            break;
+                        case "Ice Cream":
+                            index = 1;
+                            break;
+                        case "Noodle":
+                            index = 2;
+                            break;
+                        case "Pudding":
+                            index = 3;
+                            break;
+                        case "Pancakes":
+                            index = 4;
+                            break;
+                        case "French Toast":
+                            index = 5;
+                            break;
+                        case "Cake":
+                            index = 6;
+                            break;
+                    }
+
+                    for (var j = 0; j < order.transform.childCount; j++)
+                    {
+                        var recipeRequest = order.transform.GetChild(j).gameObject;
+                        if (j == index)
+                        {
+                            recipeRequest.SetActive(true);
+                        }
+                        else recipeRequest.SetActive(false);
+                    }
+
+                }
+                else order.SetActive(false);
             }
 
-            CreateRequest(hardTimeInterval, hard, "hard");
+            score.text = "SCORE: " + ordersCompleted;
+
+            overallTime += Time.deltaTime;
+            timeSinceRequest += Time.deltaTime;
         }
         else
         {
-            if (!doggoImpossible)
-            {
-                var dog = Instantiate(doggo);
-                dog.transform.position = doggoSpawnPoint;
-                doggoImpossible = true;
-            }
 
-            CreateRequest(impossibleTimeInterval, impossible, "impossible");
         }
-
-        for (var i = 0; i < canvas.childCount; i++)
-        {
-            var order = canvas.GetChild(i).gameObject;
-
-            if (i < requests.Count)
-            {
-                order.SetActive(true);
-                var recipe = requests[i];
-                var index = 0;
-                switch (recipe.result.name)
-                {
-                    case "Fried Egg":
-                        index = 0;
-                        break;
-                    case "Ice Cream":
-                        index = 1;
-                        break;
-                    case "Noodle":
-                        index = 2;
-                        break;
-                    case "Pudding":
-                        index = 3;
-                        break;
-                    case "Pancakes":
-                        index = 4;
-                        break;
-                    case "French Toast":
-                        index = 5;
-                        break;
-                    case "Cake":
-                        index = 6;
-                        break;
-                }
-
-                for (var j = 0; j < order.transform.childCount; j++)
-                {
-                    var recipeRequest = order.transform.GetChild(j).gameObject;
-                    if (j == index)
-                    {
-                        recipeRequest.SetActive(true);
-                    }
-                    else recipeRequest.SetActive(false);
-                }
-                   
-            }
-            else order.SetActive(false);
-        }
-
-        overallTime += Time.deltaTime;
-        timeSinceRequest += Time.deltaTime;
     }
 
     void CreateRequest(float timeInterval, List<Recipe> recipes, string difficulty)
@@ -221,6 +234,11 @@ public class Recipes : Persistent<Recipes>
         }
 
         requests = newRequests;
+
+        if (fulfilled)
+        {
+            ordersCompleted++;
+        }
 
         return fulfilled;
     }

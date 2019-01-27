@@ -12,7 +12,7 @@ public abstract class Persistent<T> : MonoBehaviour
 
     protected void Awake()
     {
-        //DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
         instance = gameObject.GetComponent<T>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
