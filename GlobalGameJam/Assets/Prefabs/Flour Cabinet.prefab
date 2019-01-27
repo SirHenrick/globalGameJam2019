@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7482389309419738613}
   - component: {fileID: 7482389309419738612}
   m_Layer: 9
-  m_Name: Milk Cabinet
+  m_Name: Flour Cabinet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fcf8531667926e74bad8cc5a0708ab9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a03ba922d2feb864cbbb8023a698ce19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8caab41c5ca452a468334980e6d488bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: {fileID: 4733894686487681023, guid: 797bc2cb31aa65d48a6397bb3873ef55,
+  resource: {fileID: 4733894686487681023, guid: 734fb33b91ca5cd4cbab8f2660e9af12,
     type: 3}

@@ -20,12 +20,20 @@ public class Mixer : MonoBehaviour
 
     public List<Sprite> progressBarSprites = new List<Sprite>();
 
+    public AudioSource audioPlayer;
+
     // Attributes
-    public float cookDuration = 2f;
-    public float creationSpeed = .75f;
-    public float startOffset = 1;
+    float cookDuration = 2f;
+    float creationSpeed = .75f;
+    float startOffset = 3f;
+
     public Sprite on;
     public Sprite onSecondSprite;
+
+    public AudioClip addItemSound;
+    public AudioClip doneSound;
+    public AudioClip workingSound;
+    public AudioClip garbage;
 
     void Start()
     {
@@ -87,12 +95,16 @@ public class Mixer : MonoBehaviour
                 var dish = Instantiate(finalRecipe.result);
                 dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                 dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                audioPlayer.PlayOneShot(doneSound);
             }
             else
             {
                 var dish = Instantiate(garbageRecipe.result);
                 dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                 dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                audioPlayer.PlayOneShot(garbage);
             }
 
             cookingIngredients = new List<string>();
@@ -204,18 +216,25 @@ public class Mixer : MonoBehaviour
         var ingredient = collision.gameObject.GetComponent<Ingredient>();
         if (ingredient != null)
         {
-            cookingIngredients.Add(ingredient.tag);
-            cookTimer = cookDuration;
+            if (!cookingIngredients.Contains(ingredient.tag))
+            {
+                audioPlayer.PlayOneShot(addItemSound);
 
-            if (ingredient.tag == "Egg") eggBubble.enabled = true;
-            if (ingredient.tag == "Milk") milkBubble.enabled = true;
-            if (ingredient.tag == "Flour") flourBubble.enabled = true;
+                cookingIngredients.Add(ingredient.tag);
+                cookTimer = cookDuration;
 
-            progressbarFrame = 0;
-            progressBar.sprite = progressBarSprites[progressbarFrame];
-            progressBar.enabled = true;
+                if (ingredient.tag == "Egg") eggBubble.enabled = true;
+                if (ingredient.tag == "Milk") milkBubble.enabled = true;
+                if (ingredient.tag == "Flour") flourBubble.enabled = true;
 
-            Destroy(ingredient.gameObject);
+                progressbarFrame = 0;
+                progressBar.sprite = progressBarSprites[progressbarFrame];
+                progressBar.enabled = true;
+
+                Destroy(ingredient.gameObject);
+
+                audioPlayer.PlayOneShot(workingSound);
+            }
         }
     }
 }

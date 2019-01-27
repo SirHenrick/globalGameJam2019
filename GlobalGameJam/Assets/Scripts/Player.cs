@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
 
     // Attributes
-    float speed = 5f;
+    float speed = 7f;
     float pickUpDistance = 1f;
     float throwForce = 3f;
     public SpriteRenderer spriteRenderer;
