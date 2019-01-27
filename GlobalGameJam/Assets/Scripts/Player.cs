@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
                 HeldItem.transform.position = pickUpZone.transform.position;
                 HeldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 HeldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
-                HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+                HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 HeldItem = null;
             }
         }
