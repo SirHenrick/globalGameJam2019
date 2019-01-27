@@ -5,6 +5,7 @@ public class Stove : MonoBehaviour
 {
     List<string> cookingIngredients;
     List<Recipe> recipes;
+    Recipe garbageRecipe;
     Sprite originalSprite;
     SpriteRenderer spriteRenderer;
     float cookTimer = 0f;
@@ -20,8 +21,13 @@ public class Stove : MonoBehaviour
         cookingIngredients = new List<string>();
         recipes = new List<Recipe>()
         {
-            Recipes.instance.friedEgg
+            Recipes.instance.friedEgg,
+            Recipes.instance.pancakes,
+            Recipes.instance.frenchToast,
+            Recipes.instance.cake
         };
+
+        garbageRecipe = Recipes.instance.garbage;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalSprite = spriteRenderer.sprite;
@@ -36,9 +42,12 @@ public class Stove : MonoBehaviour
 
         if (cookingIngredients.Count > 0 && cookTimer <= 0)
         {
+
+            var equal = false;
+            Recipe finalRecipe = garbageRecipe;
             foreach (var recipe in recipes)
             {
-                var equal = false;
+                
                 if (recipe.ingredients.Count == cookingIngredients.Count)
                 {
                     equal = true;
@@ -46,18 +55,26 @@ public class Stove : MonoBehaviour
                     {
                         if (!cookingIngredients.Contains(ingredient.tag))
                             equal = false;
+
+                        finalRecipe = recipe;
                     }
                 }
-
-                if (equal)
-                {
-                    var dish = Instantiate(recipe.result);
-                    dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
-                    dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
-                }
-
-                cookingIngredients = new List<string>();
             }
+
+            if (equal)
+            {
+                var dish = Instantiate(finalRecipe.result);
+                dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
+                dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+            }
+            else
+            {
+                var dish = Instantiate(garbageRecipe.result);
+                dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
+                dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+            }
+
+            cookingIngredients = new List<string>();
         }
 
         cookTimer -= Time.deltaTime;
