@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     bool pressedPickUp = false;
     public GameObject HeldItem { get; private set; } = null;
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
+    public AudioSource sfxPlayer;
+    public AudioClip throwSound;
 
     // Attributes
     float speed = 7f;
@@ -81,6 +83,8 @@ public class Player : MonoBehaviour
                 HeldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
                 HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 HeldItem = null;
+
+                sfxPlayer.PlayOneShot(throwSound);
             }
         }
         else if (HeldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
