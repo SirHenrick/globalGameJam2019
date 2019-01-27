@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &943095893789043065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943095893789043067}
+  - component: {fileID: 943095893789043066}
+  m_Layer: 0
+  m_Name: Recipes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943095893789043067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943095893789043065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2051136, y: 3.2727642, z: 0.0068359375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943095893789043066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943095893789043065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109d70498df123745b0a9094ec2de026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friedEgg:
+    ingredients:
+    - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
+    result: {fileID: 4733894686487681023, guid: 2f24f18b02addf34f92cce48b9896950,
+      type: 3}
+  iceCream:
+    ingredients: []
+    result: {fileID: 0}
+  noodle:
+    ingredients: []
+    result: {fileID: 0}
+  pudding:
+    ingredients: []
+    result: {fileID: 0}
+  pancakes:
+    ingredients: []
+    result: {fileID: 0}
+  frenchToast:
+    ingredients: []
+    result: {fileID: 0}
+  cake:
+    ingredients: []
+    result: {fileID: 0}
+  garbage:
+    ingredients: []
+    result: {fileID: 0}

@@ -20,6 +20,8 @@ public class PickUpZone : MonoBehaviour
         else if (cabinetHitColliders.Length > 0)
             NearestItem = GetNearestItem(cabinetHitColliders);
         else NearestItem = null;
+
+        var facing = player.GetComponent<Player>().Facing;
     }
 
     GameObject GetNearestItem(Collider2D[] colliders)
@@ -35,11 +37,5 @@ public class PickUpZone : MonoBehaviour
         }
 
         return nearestItem;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 }

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     float verticalAxis = 0f;
     bool pressedPickUp = false;
     GameObject heldItem = null;
-    Vector2 facing = new Vector2(0, -1);
+    public Vector2 Facing { get; private set; } = new Vector2(0, -1);
 
     // Attributes
     float speed = 5f;
@@ -43,9 +43,9 @@ public class Player : MonoBehaviour
         body.velocity = direction * speed;
 
         if (!direction.Equals(Vector2.zero))
-            facing = direction;
+            Facing = direction;
 
-        pickUpZone.transform.localPosition = facing * pickUpDistance;
+        pickUpZone.transform.localPosition = Facing * pickUpDistance;
 
         if (heldItem != null)
         {
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             {
                 heldItem.transform.position = pickUpZone.transform.position;
                 heldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                heldItem.GetComponent<Rigidbody2D>().AddForce(facing * throwForce, ForceMode2D.Impulse);
+                heldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
                 heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
                 heldItem = null;
             }
@@ -71,7 +71,6 @@ public class Player : MonoBehaviour
                 heldItem.transform.position = pickUpZone.transform.position;
             }
             else heldItem = pickUpZone.NearestItem;
-
         }
     }
 }
