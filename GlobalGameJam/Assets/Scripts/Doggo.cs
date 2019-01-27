@@ -15,7 +15,7 @@ public class Doggo : MonoBehaviour
         var startingDirection = new Vector2(Random.value, Random.value);
         startingDirection.Normalize();
 
-        body.velocity = startingDirection * 5;
+        body.velocity = startingDirection * 3;
 
     }
 
