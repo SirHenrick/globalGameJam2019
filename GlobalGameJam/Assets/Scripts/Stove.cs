@@ -22,7 +22,7 @@ public class Stove : MonoBehaviour
     public AudioSource audioPlayer;
 
     // Attributes
-    float cookDuration = 4.5f;
+    float cookDuration = 8f;
     float creationSpeed = .75f;
     float startOffset = 1;
     public Sprite on;

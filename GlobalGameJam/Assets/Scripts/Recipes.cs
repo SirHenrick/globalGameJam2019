@@ -9,17 +9,20 @@ public class Recipes : Persistent<Recipes>
     List<Recipe> easy;
     List<Recipe> medium;
     List<Recipe> hard;
+    List<Recipe> impossible;
 
     float overallTime = 0f;
     float timeSinceRequest = 0f;
 
     // Attributes
     const float minute = 60f;
-    const float easyToMediumTime = minute * 2f;
-    const float mediumToHard = minute * 5f;
-    const float easyTimeInterval = 40f;
-    const float mediumTimeInterval = 30f;
-    const float hardTimeInterval = 25f;
+    const float easyToMediumTime = minute * 1f;
+    const float mediumToHard = minute * 3f;
+    const float hardToImpossible = minute * 6f;
+    const float easyTimeInterval = 10f;
+    const float mediumTimeInterval = 10f;
+    const float hardTimeInterval = 8f;
+    const float impossibleTimeInterval = 6f;
 
     public List<Recipe> requests;
 
@@ -75,6 +78,17 @@ public class Recipes : Persistent<Recipes>
             frenchToast,
             cake,
             cake,
+            cake,
+        };
+
+        impossible = new List<Recipe>
+        {
+            pudding,
+            pancakes,
+            frenchToast,
+            cake,
+            cake,
+            cake,
         };
     }
 
@@ -88,9 +102,13 @@ public class Recipes : Persistent<Recipes>
         {
             CreateRequest(mediumTimeInterval, medium, "medium");
         }
-        else
+        else if (overallTime < hardToImpossible)
         {
             CreateRequest(hardTimeInterval, hard, "hard");
+        }
+        else
+        {
+            CreateRequest(impossibleTimeInterval, impossible, "impossible");
         }
 
         for (var i = 0; i < canvas.childCount; i++)
