@@ -30,7 +30,7 @@ public class Microwave : MonoBehaviour
     float startOffset = 1;
     public Sprite on;
     public Sprite brokenSprite;
-    float brokenCooldown = 60f * 3f;
+    float brokenCooldown = 60f * 1f;
 
     public AudioClip addItemSound;
     public AudioClip doneSound;
