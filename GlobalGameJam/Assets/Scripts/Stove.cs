@@ -10,6 +10,13 @@ public class Stove : MonoBehaviour
     SpriteRenderer spriteRenderer;
     float cookTimer = 0f;
 
+    [SerializeField]
+    SpriteRenderer eggBubble;
+    [SerializeField]
+    SpriteRenderer milkBubble;
+    [SerializeField]
+    SpriteRenderer flourBubble;
+
     // Attributes
     float cookDuration = 2f;
     float creationSpeed = .75f;
@@ -31,6 +38,10 @@ public class Stove : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalSprite = spriteRenderer.sprite;
+
+        eggBubble.enabled = false;
+        milkBubble.enabled = false;
+        flourBubble.enabled = false;
     }
 
     void Update()
@@ -75,6 +86,11 @@ public class Stove : MonoBehaviour
             }
 
             cookingIngredients = new List<string>();
+
+            eggBubble.enabled = false;
+            milkBubble.enabled = false;
+            flourBubble.enabled = false;
+
         }
 
         cookTimer -= Time.deltaTime;
@@ -87,6 +103,10 @@ public class Stove : MonoBehaviour
         {
             cookingIngredients.Add(ingredient.tag);
             cookTimer = cookDuration;
+
+            if (ingredient.tag == "Egg") eggBubble.enabled = true;
+            if (ingredient.tag == "Milk") milkBubble.enabled = true;
+            if (ingredient.tag == "Flour") flourBubble.enabled = true;
 
             Destroy(ingredient.gameObject);
         }
