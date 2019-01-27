@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3794182622239238351}
   - component: {fileID: 3794182622239238350}
   - component: {fileID: 3794182622239238345}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3794182622290345598}
   - component: {fileID: 3794182622290345599}
   - component: {fileID: 3794182622290345596}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pick Up Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,8 +165,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 95cbc0f97fd2e56498c0c019deb734d2, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.19576454, a: 0.26666668}
+  m_Sprite: {fileID: 21300000, guid: 8b47403d4a4830341becb3369f1f3a8a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7254902}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 3794182622646528728}
   - component: {fileID: 3794182622646528729}
   - component: {fileID: 3794182622646528734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
