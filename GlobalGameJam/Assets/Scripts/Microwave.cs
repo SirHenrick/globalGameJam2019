@@ -22,6 +22,8 @@ public class Microwave : MonoBehaviour
 
     public List<Sprite> progressBarSprites = new List<Sprite>();
 
+    public AudioSource audioPlayer;
+
     // Attributes
     public float cookDuration = 2f;
     public float creationSpeed = .75f;
@@ -29,6 +31,11 @@ public class Microwave : MonoBehaviour
     public Sprite on;
     public Sprite brokenSprite;
     public float brokenCooldown = 5f;
+
+    public AudioClip addItemSound;
+    public AudioClip doneSound;
+    public AudioClip workingSound;
+    public AudioClip garbage;
 
     void Start()
     {
@@ -100,12 +107,16 @@ public class Microwave : MonoBehaviour
                     var dish = Instantiate(finalRecipe.result);
                     dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                     dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                    audioPlayer.PlayOneShot(doneSound);
                 }
                 else
                 {
                     var dish = Instantiate(garbageRecipe.result);
                     dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                     dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                    audioPlayer.PlayOneShot(garbage);
                 }
 
                 cookingIngredients = new List<string>();
@@ -219,6 +230,8 @@ public class Microwave : MonoBehaviour
             {
                 if (!cookingIngredients.Contains(ingredient.tag))
                 {
+                    audioPlayer.PlayOneShot(addItemSound);
+
                     cookingIngredients.Add(ingredient.tag);
                     cookTimer = cookDuration;
 
@@ -231,6 +244,8 @@ public class Microwave : MonoBehaviour
                     progressBar.enabled = true;
 
                     Destroy(ingredient.gameObject);
+
+                    audioPlayer.PlayOneShot(workingSound);
                 }
             }
         }

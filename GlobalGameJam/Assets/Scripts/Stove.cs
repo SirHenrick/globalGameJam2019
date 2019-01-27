@@ -19,11 +19,18 @@ public class Stove : MonoBehaviour
 
     public List<Sprite> progressBarSprites = new List<Sprite>();
 
+    public AudioSource audioPlayer;
+
     // Attributes
     public float cookDuration = 2f;
     public float creationSpeed = .75f;
     public float startOffset = 1;
     public Sprite on;
+
+    public AudioClip addItemSound;
+    public AudioClip doneSound;
+    public AudioClip workingSound;
+    public AudioClip garbage;
 
     void Start()
     {
@@ -88,12 +95,16 @@ public class Stove : MonoBehaviour
                 var dish = Instantiate(finalRecipe.result);
                 dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                 dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                audioPlayer.PlayOneShot(doneSound);
             }
             else
             {
                 var dish = Instantiate(garbageRecipe.result);
                 dish.transform.position = new Vector2(transform.position.x, transform.position.y - startOffset);
                 dish.GetComponent<Rigidbody2D>().AddForce(Vector2.down * creationSpeed, ForceMode2D.Impulse);
+
+                audioPlayer.PlayOneShot(garbage);
             }
 
             cookingIngredients = new List<string>();
@@ -191,6 +202,8 @@ public class Stove : MonoBehaviour
         {
             if (!cookingIngredients.Contains(ingredient.tag))
             {
+                audioPlayer.PlayOneShot(addItemSound);
+
                 cookingIngredients.Add(ingredient.tag);
                 cookTimer = cookDuration;
 
@@ -203,6 +216,8 @@ public class Stove : MonoBehaviour
                 progressBar.enabled = true;
 
                 Destroy(ingredient.gameObject);
+
+                audioPlayer.PlayOneShot(workingSound);
             }
         }
     }
