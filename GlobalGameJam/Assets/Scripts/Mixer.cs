@@ -204,18 +204,21 @@ public class Mixer : MonoBehaviour
         var ingredient = collision.gameObject.GetComponent<Ingredient>();
         if (ingredient != null)
         {
-            cookingIngredients.Add(ingredient.tag);
-            cookTimer = cookDuration;
+            if (!cookingIngredients.Contains(ingredient.tag))
+            {
+                cookingIngredients.Add(ingredient.tag);
+                cookTimer = cookDuration;
 
-            if (ingredient.tag == "Egg") eggBubble.enabled = true;
-            if (ingredient.tag == "Milk") milkBubble.enabled = true;
-            if (ingredient.tag == "Flour") flourBubble.enabled = true;
+                if (ingredient.tag == "Egg") eggBubble.enabled = true;
+                if (ingredient.tag == "Milk") milkBubble.enabled = true;
+                if (ingredient.tag == "Flour") flourBubble.enabled = true;
 
-            progressbarFrame = 0;
-            progressBar.sprite = progressBarSprites[progressbarFrame];
-            progressBar.enabled = true;
+                progressbarFrame = 0;
+                progressBar.sprite = progressBarSprites[progressbarFrame];
+                progressBar.enabled = true;
 
-            Destroy(ingredient.gameObject);
+                Destroy(ingredient.gameObject);
+            }
         }
     }
 }
