@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3794182622239238351}
   - component: {fileID: 3794182622239238350}
   - component: {fileID: 3794182622239238345}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.5}
+  m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &3794182622290345593
 GameObject:
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3794182622290345598}
   - component: {fileID: 3794182622290345599}
   - component: {fileID: 3794182622290345596}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Pick Up Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,6 +194,9 @@ MonoBehaviour:
   cabinetLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  resultLayerMask:
+    serializedVersion: 2
+    m_Bits: 8192
   player: {fileID: 3794182622239238344}
 --- !u!1 &3794182622646528731
 GameObject:
@@ -207,7 +210,7 @@ GameObject:
   - component: {fileID: 3794182622646528729}
   - component: {fileID: 3794182622646528734}
   - component: {fileID: 1920508878}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

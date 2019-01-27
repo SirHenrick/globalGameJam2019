@@ -13,6 +13,7 @@ public class PickUpZone : MonoBehaviour
 
     public LayerMask itemLayerMask;
     public LayerMask cabinetLayerMask;
+    public LayerMask resultLayerMask;
     public Transform player;
 
     public GameObject NearestItem { get; private set; } = null;
@@ -26,8 +27,11 @@ public class PickUpZone : MonoBehaviour
     {
         Collider2D[] itemHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale * grabSize, 0, itemLayerMask);
         Collider2D[] cabinetHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale * grabSize, 0, cabinetLayerMask);
+        Collider2D[] resultHitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale * grabSize, 0, resultLayerMask);
 
-        if (itemHitColliders.Length > 0)
+        if (resultHitColliders.Length > 0)
+            NearestItem = GetNearestItem(resultHitColliders);
+        else if (itemHitColliders.Length > 0)
             NearestItem = GetNearestItem(itemHitColliders);
         else if (cabinetHitColliders.Length > 0)
             NearestItem = GetNearestItem(cabinetHitColliders);

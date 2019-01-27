@@ -7,6 +7,13 @@ TagManager:
   - Milk
   - Egg
   - Flour
+  - French Toast
+  - Cake
+  - Ice Cream
+  - Noodle
+  - Pancakes
+  - Pudding
+  - Fried Egg
   layers:
   - Default
   - TransparentFX
@@ -20,8 +27,8 @@ TagManager:
   - Cabinet
   - Player
   - Background
-  - 
-  - 
+  - Win Zone
+  - Result
   - 
   - 
   - 
