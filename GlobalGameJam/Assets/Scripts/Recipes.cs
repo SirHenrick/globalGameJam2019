@@ -18,13 +18,14 @@ public class Recipes : Persistent<Recipes>
     bool doggoHard = false;
     bool doggoImpossible = false;
     int ordersCompleted = 0;
+    bool gameOver = false;
 
     // Attributes
     const float minute = 60f;
     const float easyToMediumTime = minute * 1f;
     const float mediumToHard = minute * 3f;
     const float hardToImpossible = minute * 5f;
-    const float easyTimeInterval = 10f;
+    const float easyTimeInterval = 3f;
     const float mediumTimeInterval = 9f;
     const float hardTimeInterval = 8f;
     const float impossibleTimeInterval = 6f;
@@ -106,6 +107,8 @@ public class Recipes : Persistent<Recipes>
     {
         if (canvas != null)
         {
+            gameOver = false;
+
             if (overallTime < easyToMediumTime)
             {
                 CreateRequest(easyTimeInterval, easy, "easy");
@@ -199,7 +202,12 @@ public class Recipes : Persistent<Recipes>
         }
         else
         {
+            if (!gameOver)
+            {
+                GameObject.Find("Orders Completed").transform.GetChild(0).GetComponent<Text>().text = "SCORE: " + ordersCompleted;
+            }
 
+            gameOver = true;
         }
     }
 
