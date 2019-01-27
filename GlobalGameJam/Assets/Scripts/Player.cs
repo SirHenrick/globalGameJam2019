@@ -24,11 +24,14 @@ public class Player : MonoBehaviour
     public PickUpZone pickUpZone;
 
     Rigidbody2D body;
+
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         player = ReInput.players.GetSystemPlayer();
         body = GetComponent<Rigidbody2D>();
+        animator = spriteRenderer.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,25 @@ public class Player : MonoBehaviour
 
         var direction = new Vector2(horizontalAxis, verticalAxis).normalized;
         body.velocity = direction * speed;
+
+        if (direction.magnitude <= Mathf.Epsilon)
+        {
+            animator.SetFloat("animationSpeed", 0f);
+        }
+        else
+        {
+            animator.SetFloat("animationSpeed", 1f);
+        }
+        
+        if (Mathf.Abs(direction.x) > Mathf.Epsilon)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
+        }
+        animator.SetBool("isWalking", direction.x >= Mathf.Epsilon || direction.x <= -Mathf.Epsilon);
+        animator.SetBool("isWalkingUp", direction.y >= Mathf.Epsilon);
+        animator.SetBool("isWalkingDown", direction.y <= -Mathf.Epsilon);
+
+        
 
         if (!direction.Equals(Vector2.zero))
             facing = direction;
