@@ -40,6 +40,8 @@ public class Recipes : Persistent<Recipes>
     public Transform canvas;
     public Vector2 doggoSpawnPoint;
     public GameObject doggo;
+    public AudioSource sfxPlayer;
+    public AudioClip dogBark;
 
     void Start()
     {
@@ -110,6 +112,7 @@ public class Recipes : Persistent<Recipes>
                 var dog = Instantiate(doggo);
                 dog.transform.position = doggoSpawnPoint;
                 doggoMedium = true;
+                sfxPlayer.PlayOneShot(dogBark);
             }
 
             CreateRequest(mediumTimeInterval, medium, "medium");
@@ -121,6 +124,7 @@ public class Recipes : Persistent<Recipes>
                 var dog = Instantiate(doggo);
                 dog.transform.position = doggoSpawnPoint;
                 doggoMedium = true;
+                sfxPlayer.PlayOneShot(dogBark);
             }
 
             CreateRequest(hardTimeInterval, hard, "hard");
@@ -132,6 +136,7 @@ public class Recipes : Persistent<Recipes>
                 var dog = Instantiate(doggo);
                 dog.transform.position = doggoSpawnPoint;
                 doggoMedium = true;
+                sfxPlayer.PlayOneShot(dogBark);
             }
 
             CreateRequest(impossibleTimeInterval, impossible, "impossible");
