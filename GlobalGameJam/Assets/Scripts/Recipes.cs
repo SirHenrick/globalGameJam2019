@@ -104,7 +104,7 @@ public class Recipes : Persistent<Recipes>
                     case "Pudding":
                         index = 3;
                         break;
-                    case "Pancake":
+                    case "Pancakes":
                         index = 4;
                         break;
                     case "French Toast":
@@ -145,6 +145,22 @@ public class Recipes : Persistent<Recipes>
                 requests.Add(recipes[randomIndex]);
             }
         }
+    }
+
+    public bool FulfillOrder(string name)
+    {
+        var newRequests = new List<Recipe>();
+        var fulfilled = false;
+        foreach(var recipe in requests)
+        {
+            if (fulfilled || recipe.result.name != name)
+                newRequests.Add(recipe);
+            else fulfilled = true;
+        }
+
+        requests = newRequests;
+
+        return fulfilled;
     }
 }
 
