@@ -23,9 +23,10 @@ public class Mixer : MonoBehaviour
     public AudioSource audioPlayer;
 
     // Attributes
-    public float cookDuration = 2f;
-    public float creationSpeed = .75f;
-    public float startOffset = 1;
+    float cookDuration = 2f;
+    float creationSpeed = .75f;
+    float startOffset = 3f;
+
     public Sprite on;
     public Sprite onSecondSprite;
 
