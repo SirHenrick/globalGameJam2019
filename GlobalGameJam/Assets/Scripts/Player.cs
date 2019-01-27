@@ -133,10 +133,15 @@ public class Player : MonoBehaviour
         throwSpriteRenderer.sprite = throwAnimation[currentThrowFrame];
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        var dish = Instantiate(garbageRecipe.result);
-        dish.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-        dish.GetComponent<Rigidbody2D>().AddForce(Vector2.up * .75f, ForceMode2D.Impulse);
+        if (col.tag == "Dog" && HeldItem != null)
+        {
+            Destroy(HeldItem);
+            HeldItem = null;
+            var dish = Instantiate(garbageRecipe.result);
+            dish.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+            dish.GetComponent<Rigidbody2D>().AddForce(Vector2.up * .5f, ForceMode2D.Impulse);
+        }
     }
 }
