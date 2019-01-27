@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Stove : MonoBehaviour
+public class Mixer : MonoBehaviour
 {
     List<string> cookingIngredients;
     List<Recipe> recipes;
@@ -24,18 +25,16 @@ public class Stove : MonoBehaviour
     public float creationSpeed = .75f;
     public float startOffset = 1;
     public Sprite on;
+    public Sprite onSecondSprite;
 
     void Start()
     {
         cookingIngredients = new List<string>();
         recipes = new List<Recipe>()
         {
-            
-            Recipes.instance.friedEgg,
-            Recipes.instance.noodle,
-            Recipes.instance.pancakes,
-            Recipes.instance.frenchToast,
-            Recipes.instance.cake,
+
+            Recipes.instance.iceCream,
+            Recipes.instance.pudding
 
         };
 
@@ -64,7 +63,7 @@ public class Stove : MonoBehaviour
             Recipe finalRecipe = garbageRecipe;
             foreach (var recipe in recipes)
             {
-                
+
                 if (recipe.ingredients.Count == cookingIngredients.Count)
                 {
                     equal = true;
@@ -76,7 +75,7 @@ public class Stove : MonoBehaviour
                     }
                 }
 
-                if(equal)
+                if (equal)
                 {
                     finalRecipe = recipe;
                     break;
@@ -104,7 +103,7 @@ public class Stove : MonoBehaviour
             progressBar.enabled = false;
         }
 
-        cookingProgress = (1 - (cookTimer/cookDuration)) * 100;
+        cookingProgress = (1 - (cookTimer / cookDuration)) * 100;
 
         cookTimer -= Time.deltaTime;
 
@@ -112,75 +111,91 @@ public class Stove : MonoBehaviour
         {
             progressbarFrame = 0;
             progressBar.sprite = progressBarSprites[progressbarFrame];
-        }else if (cookingProgress < 6.67 * 2)
+            spriteRenderer.sprite = onSecondSprite;
+        }
+        else if (cookingProgress < 6.67 * 2)
         {
             progressbarFrame = 1;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 3)
         {
             progressbarFrame = 2;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 4)
         {
             progressbarFrame = 3;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 5)
         {
             progressbarFrame = 4;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 6)
         {
             progressbarFrame = 5;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 7)
         {
             progressbarFrame = 6;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 8)
         {
             progressbarFrame = 7;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 9)
         {
             progressbarFrame = 8;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 10)
         {
             progressbarFrame = 9;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 11)
         {
             progressbarFrame = 10;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 12)
         {
             progressbarFrame = 11;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 13)
         {
             progressbarFrame = 12;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
         else if (cookingProgress < 6.67 * 14)
         {
             progressbarFrame = 13;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = on;
         }
         else if (cookingProgress < 6.67 * 15)
         {
             progressbarFrame = 14;
             progressBar.sprite = progressBarSprites[progressbarFrame];
+            spriteRenderer.sprite = onSecondSprite;
         }
     }
 

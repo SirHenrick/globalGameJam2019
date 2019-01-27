@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Stove : MonoBehaviour
+public class Microwave : MonoBehaviour
 {
     List<string> cookingIngredients;
     List<Recipe> recipes;
@@ -30,13 +31,14 @@ public class Stove : MonoBehaviour
         cookingIngredients = new List<string>();
         recipes = new List<Recipe>()
         {
-            
+
             Recipes.instance.friedEgg,
             Recipes.instance.noodle,
             Recipes.instance.pancakes,
             Recipes.instance.frenchToast,
             Recipes.instance.cake,
-
+            Recipes.instance.iceCream,
+            Recipes.instance.pudding
         };
 
         garbageRecipe = Recipes.instance.garbage;
@@ -64,7 +66,7 @@ public class Stove : MonoBehaviour
             Recipe finalRecipe = garbageRecipe;
             foreach (var recipe in recipes)
             {
-                
+
                 if (recipe.ingredients.Count == cookingIngredients.Count)
                 {
                     equal = true;
@@ -76,7 +78,7 @@ public class Stove : MonoBehaviour
                     }
                 }
 
-                if(equal)
+                if (equal)
                 {
                     finalRecipe = recipe;
                     break;
@@ -104,7 +106,7 @@ public class Stove : MonoBehaviour
             progressBar.enabled = false;
         }
 
-        cookingProgress = (1 - (cookTimer/cookDuration)) * 100;
+        cookingProgress = (1 - (cookTimer / cookDuration)) * 100;
 
         cookTimer -= Time.deltaTime;
 
@@ -112,7 +114,8 @@ public class Stove : MonoBehaviour
         {
             progressbarFrame = 0;
             progressBar.sprite = progressBarSprites[progressbarFrame];
-        }else if (cookingProgress < 6.67 * 2)
+        }
+        else if (cookingProgress < 6.67 * 2)
         {
             progressbarFrame = 1;
             progressBar.sprite = progressBarSprites[progressbarFrame];
