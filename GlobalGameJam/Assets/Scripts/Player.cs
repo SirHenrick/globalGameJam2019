@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     float horizontalAxis = 0f;
     float verticalAxis = 0f;
     bool pressedPickUp = false;
-    GameObject heldItem = null;
+    public GameObject HeldItem { get; private set; } = null;
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
 
     // Attributes
@@ -47,30 +47,30 @@ public class Player : MonoBehaviour
 
         pickUpZone.transform.localPosition = Facing * pickUpDistance;
 
-        if (heldItem != null)
+        if (HeldItem != null)
         {
-            heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-            heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Held";
+            HeldItem.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+            HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Held";
 
             if (player.GetButtonDown(inputPickUp))
             {
-                heldItem.transform.position = pickUpZone.transform.position;
-                heldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                heldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
-                heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
-                heldItem = null;
+                HeldItem.transform.position = pickUpZone.transform.position;
+                HeldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                HeldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
+                HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                HeldItem = null;
             }
         }
-        else if (heldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
+        else if (HeldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
         {
             var cabinet = pickUpZone.NearestItem.GetComponent<Cabinet>();
             if (cabinet != null)
             {
                 var newItem = Instantiate(cabinet.resource);
-                heldItem = newItem;
-                heldItem.transform.position = pickUpZone.transform.position;
+                HeldItem = newItem;
+                HeldItem.transform.position = pickUpZone.transform.position;
             }
-            else heldItem = pickUpZone.NearestItem;
+            else HeldItem = pickUpZone.NearestItem;
         }
     }
 }
