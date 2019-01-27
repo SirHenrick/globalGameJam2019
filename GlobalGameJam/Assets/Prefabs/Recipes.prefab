@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &943095893789043065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943095893789043067}
+  - component: {fileID: 943095893789043066}
+  m_Layer: 0
+  m_Name: Recipes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943095893789043067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943095893789043065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2051136, y: 3.2727642, z: 0.0068359375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943095893789043066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943095893789043065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109d70498df123745b0a9094ec2de026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friedEgg:
+    ingredients:
+    - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
+    result: {fileID: 4733894686487681023, guid: 2f24f18b02addf34f92cce48b9896950,
+      type: 3}
+  iceCream:
+    ingredients:
+    - {fileID: 5706549686050083648, guid: 797bc2cb31aa65d48a6397bb3873ef55, type: 3}
+    result: {fileID: 4733894686487681023, guid: 5131bfd45e144b04387172d03c25ea48,
+      type: 3}
+  noodle:
+    ingredients:
+    - {fileID: 1418904858002279640, guid: 734fb33b91ca5cd4cbab8f2660e9af12, type: 3}
+    result: {fileID: 4733894686487681023, guid: 0ca2d0d6726c2ce4dbd40b5659d65157,
+      type: 3}
+  pudding:
+    ingredients:
+    - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
+    - {fileID: 5706549686050083648, guid: 797bc2cb31aa65d48a6397bb3873ef55, type: 3}
+    result: {fileID: 4733894686487681023, guid: 05da0c62f0bac294d8953f49a57185cf,
+      type: 3}
+  pancakes:
+    ingredients:
+    - {fileID: 5706549686050083648, guid: 797bc2cb31aa65d48a6397bb3873ef55, type: 3}
+    - {fileID: 1418904858002279640, guid: 734fb33b91ca5cd4cbab8f2660e9af12, type: 3}
+    result: {fileID: 4733894686487681023, guid: 514a6272decc8384e98fd213840fd219,
+      type: 3}
+  frenchToast:
+    ingredients:
+    - {fileID: 1418904858002279640, guid: 734fb33b91ca5cd4cbab8f2660e9af12, type: 3}
+    - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
+    result: {fileID: 4733894686487681023, guid: 9b4a32e5fe6efab4fb5ac842e0eb374c,
+      type: 3}
+  cake:
+    ingredients:
+    - {fileID: 1418904858002279640, guid: 734fb33b91ca5cd4cbab8f2660e9af12, type: 3}
+    - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
+    - {fileID: 5706549686050083648, guid: 797bc2cb31aa65d48a6397bb3873ef55, type: 3}
+    result: {fileID: 4733894686487681023, guid: 236c4e04cadc4184db23a2a774f9a586,
+      type: 3}
+  garbage:
+    ingredients: []
+    result: {fileID: 4733894686487681023, guid: 1fa024d6911a5d544a7de2f4a9dfcd81,
+      type: 3}
