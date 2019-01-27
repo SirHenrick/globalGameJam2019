@@ -13,6 +13,9 @@ public class Recipes : Persistent<Recipes>
 
     float overallTime = 0f;
     float timeSinceRequest = 0f;
+    bool doggoMedium = false;
+    bool doggoHard = false;
+    bool doggoImpossible = false;
 
     // Attributes
     const float minute = 60f;
@@ -35,6 +38,8 @@ public class Recipes : Persistent<Recipes>
     public Recipe cake;
     public Recipe garbage;
     public Transform canvas;
+    public Vector2 doggoSpawnPoint;
+    public GameObject doggo;
 
     void Start()
     {
@@ -100,14 +105,35 @@ public class Recipes : Persistent<Recipes>
         }
         else if (overallTime < mediumToHard)
         {
+            if (!doggoMedium)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoMedium = true;
+            }
+
             CreateRequest(mediumTimeInterval, medium, "medium");
         }
         else if (overallTime < hardToImpossible)
         {
+            if (!doggoHard)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoMedium = true;
+            }
+
             CreateRequest(hardTimeInterval, hard, "hard");
         }
         else
         {
+            if (!doggoImpossible)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoMedium = true;
+            }
+
             CreateRequest(impossibleTimeInterval, impossible, "impossible");
         }
 
