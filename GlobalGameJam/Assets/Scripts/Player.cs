@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     float horizontalAxis = 0f;
     float verticalAxis = 0f;
     bool pressedPickUp = false;
-    GameObject heldItem = null;
+    public GameObject HeldItem { get; private set; } = null;
     public Vector2 Facing { get; private set; } = new Vector2(0, -1);
 
     // Attributes
@@ -24,11 +24,14 @@ public class Player : MonoBehaviour
     public PickUpZone pickUpZone;
 
     Rigidbody2D body;
+
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         player = ReInput.players.GetSystemPlayer();
         body = GetComponent<Rigidbody2D>();
+        animator = spriteRenderer.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,35 +45,55 @@ public class Player : MonoBehaviour
         var direction = new Vector2(horizontalAxis, verticalAxis).normalized;
         body.velocity = direction * speed;
 
+        if (direction.magnitude <= Mathf.Epsilon)
+        {
+            animator.SetFloat("animationSpeed", 0f);
+        }
+        else
+        {
+            animator.SetFloat("animationSpeed", 1f);
+        }
+        
+        if (Mathf.Abs(direction.x) > Mathf.Epsilon)
+        {
+            spriteRenderer.transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
+        }
+        animator.SetBool("isWalking", direction.x >= Mathf.Epsilon || direction.x <= -Mathf.Epsilon);
+        animator.SetBool("isWalkingUp", direction.y >= Mathf.Epsilon);
+        animator.SetBool("isWalkingDown", direction.y <= -Mathf.Epsilon);
+
+        
+
         if (!direction.Equals(Vector2.zero))
             Facing = direction;
 
         pickUpZone.transform.localPosition = Facing * pickUpDistance;
 
-        if (heldItem != null)
+        if (HeldItem != null)
         {
-            heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
-            heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Held";
+            HeldItem.transform.position = new Vector2(transform.position.x, transform.position.y + 1);
+            HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Held";
 
             if (player.GetButtonDown(inputPickUp))
             {
-                heldItem.transform.position = pickUpZone.transform.position;
-                heldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                heldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
-                heldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
-                heldItem = null;
+                HeldItem.transform.position = pickUpZone.transform.position;
+                HeldItem.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                HeldItem.GetComponent<Rigidbody2D>().AddForce(Facing * throwForce, ForceMode2D.Impulse);
+                HeldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                HeldItem = null;
             }
         }
-        else if (heldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
+        else if (HeldItem == null && pickUpZone.NearestItem != null && player.GetButtonDown(inputPickUp))
         {
             var cabinet = pickUpZone.NearestItem.GetComponent<Cabinet>();
             if (cabinet != null)
             {
                 var newItem = Instantiate(cabinet.resource);
-                heldItem = newItem;
-                heldItem.transform.position = pickUpZone.transform.position;
+                HeldItem = newItem;
+                HeldItem.transform.position = pickUpZone.transform.position;
             }
-            else heldItem = pickUpZone.NearestItem;
+            else HeldItem = pickUpZone.NearestItem;
         }
+        animator.SetBool("isCarrying", HeldItem != null);
     }
 }
