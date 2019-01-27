@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: Player
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: movementDirection
+  - m_Name: horizontalMovement
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -37,11 +37,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: movementDirection
-    m_EventTreshold: 45
-  - m_ConditionMode: 4
-    m_ConditionEvent: movementDirection
-    m_EventTreshold: 135
+    m_ConditionEvent: horizontalMovement
+    m_EventTreshold: 0.9
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102783812185819868}
   m_Solo: 0
