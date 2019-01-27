@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d70498df123745b0a9094ec2de026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requests: []
   friedEgg:
     ingredients:
     - {fileID: 566804415633476136, guid: 0aa740700fb29804a9daa6a17b5860f9, type: 3}
@@ -87,3 +88,6 @@ MonoBehaviour:
     ingredients: []
     result: {fileID: 4733894686487681023, guid: 1fa024d6911a5d544a7de2f4a9dfcd81,
       type: 3}
+  canvas: {fileID: 0}
+  doggoSpawnPoint: {x: -10.37, y: 2.51}
+  doggo: {fileID: 6861107917543002753, guid: c7a92e5cc03c7bf40b8b64a762d66b5a, type: 3}

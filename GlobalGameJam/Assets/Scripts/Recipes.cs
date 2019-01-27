@@ -9,17 +9,24 @@ public class Recipes : Persistent<Recipes>
     List<Recipe> easy;
     List<Recipe> medium;
     List<Recipe> hard;
+    List<Recipe> impossible;
 
     float overallTime = 0f;
     float timeSinceRequest = 0f;
+    bool doggoMedium = false;
+    bool doggoHard = false;
+    bool doggoImpossible = false;
+    int ordersCompleted = 0;
 
     // Attributes
     const float minute = 60f;
-    const float easyToMediumTime = minute * 2f;
-    const float mediumToHard = minute * 5f;
-    const float easyTimeInterval = 40f;
-    const float mediumTimeInterval = 30f;
-    const float hardTimeInterval = 25f;
+    const float easyToMediumTime = minute * 1f;
+    const float mediumToHard = minute * 3f;
+    const float hardToImpossible = minute * 5f;
+    const float easyTimeInterval = 10f;
+    const float mediumTimeInterval = 9f;
+    const float hardTimeInterval = 8f;
+    const float impossibleTimeInterval = 6f;
 
     public List<Recipe> requests;
 
@@ -32,6 +39,8 @@ public class Recipes : Persistent<Recipes>
     public Recipe cake;
     public Recipe garbage;
     public Transform canvas;
+    public Vector2 doggoSpawnPoint;
+    public GameObject doggo;
 
     void Start()
     {
@@ -75,6 +84,17 @@ public class Recipes : Persistent<Recipes>
             frenchToast,
             cake,
             cake,
+            cake,
+        };
+
+        impossible = new List<Recipe>
+        {
+            pudding,
+            pancakes,
+            frenchToast,
+            cake,
+            cake,
+            cake,
         };
     }
 
@@ -86,11 +106,36 @@ public class Recipes : Persistent<Recipes>
         }
         else if (overallTime < mediumToHard)
         {
+            if (!doggoMedium)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoMedium = true;
+            }
+
             CreateRequest(mediumTimeInterval, medium, "medium");
+        }
+        else if (overallTime < hardToImpossible)
+        {
+            if (!doggoHard)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoHard = true;
+            }
+
+            CreateRequest(hardTimeInterval, hard, "hard");
         }
         else
         {
-            CreateRequest(hardTimeInterval, hard, "hard");
+            if (!doggoImpossible)
+            {
+                var dog = Instantiate(doggo);
+                dog.transform.position = doggoSpawnPoint;
+                doggoImpossible = true;
+            }
+
+            CreateRequest(impossibleTimeInterval, impossible, "impossible");
         }
 
         for (var i = 0; i < canvas.childCount; i++)

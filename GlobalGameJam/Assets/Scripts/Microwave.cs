@@ -25,12 +25,12 @@ public class Microwave : MonoBehaviour
     public AudioSource audioPlayer;
 
     // Attributes
-    public float cookDuration = 2f;
-    public float creationSpeed = .75f;
-    public float startOffset = 1;
+    float cookDuration = 3f;
+    float creationSpeed = .75f;
+    float startOffset = 1;
     public Sprite on;
     public Sprite brokenSprite;
-    public float brokenCooldown = 5f;
+    float brokenCooldown = 60f * 3f;
 
     public AudioClip addItemSound;
     public AudioClip doneSound;

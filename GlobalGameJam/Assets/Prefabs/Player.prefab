@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxPlayer: {fileID: 1338203790}
   throwSound: {fileID: 8300000, guid: 57df243fd8e9d7540a162b563280d314, type: 3}
+  dogSound: {fileID: 8300000, guid: 2d1b84e37285003409df1685ad95b2f1, type: 3}
+  garbageSound: {fileID: 8300000, guid: a27dd62d50060a845b77c130ebde2d3a, type: 3}
   spriteRenderer: {fileID: 3794182622646528729}
   pickUpZone: {fileID: 3794182622290345596}
   throwEffect: {fileID: 2018352682}
