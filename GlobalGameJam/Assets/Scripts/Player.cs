@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
             {
                 var newItem = Instantiate(cabinet.resource);
                 heldItem = newItem;
+                heldItem.transform.position = pickUpZone.transform.position;
             }
             else heldItem = pickUpZone.NearestItem;
 
