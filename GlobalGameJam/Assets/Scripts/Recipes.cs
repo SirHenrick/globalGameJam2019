@@ -16,14 +16,15 @@ public class Recipes : Persistent<Recipes>
     bool doggoMedium = false;
     bool doggoHard = false;
     bool doggoImpossible = false;
+    int ordersCompleted = 0;
 
     // Attributes
     const float minute = 60f;
     const float easyToMediumTime = minute * 1f;
     const float mediumToHard = minute * 3f;
-    const float hardToImpossible = minute * 6f;
+    const float hardToImpossible = minute * 5f;
     const float easyTimeInterval = 10f;
-    const float mediumTimeInterval = 10f;
+    const float mediumTimeInterval = 9f;
     const float hardTimeInterval = 8f;
     const float impossibleTimeInterval = 6f;
 
@@ -120,7 +121,7 @@ public class Recipes : Persistent<Recipes>
             {
                 var dog = Instantiate(doggo);
                 dog.transform.position = doggoSpawnPoint;
-                doggoMedium = true;
+                doggoHard = true;
             }
 
             CreateRequest(hardTimeInterval, hard, "hard");
@@ -131,7 +132,7 @@ public class Recipes : Persistent<Recipes>
             {
                 var dog = Instantiate(doggo);
                 dog.transform.position = doggoSpawnPoint;
-                doggoMedium = true;
+                doggoImpossible = true;
             }
 
             CreateRequest(impossibleTimeInterval, impossible, "impossible");
