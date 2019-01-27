@@ -9,16 +9,16 @@ public class Recipes : Persistent<Recipes>
     List<Recipe> medium;
     List<Recipe> hard;
 
-    float overallTime = 60f * 5f;
+    float overallTime = 0f;
     float timeSinceRequest = 0f;
 
     // Attributes
     const float minute = 60f;
-    const float easyToMediumTime = minute * 4.5f;
-    const float mediumToHard = minute * 4f;
-    const float easyTimeInterval = 5f;
-    const float mediumTimeInterval = 5f;
-    const float hardTimeInterval = 5f;
+    const float easyToMediumTime = minute * 2f;
+    const float mediumToHard = minute * 5f;
+    const float easyTimeInterval = 40f;
+    const float mediumTimeInterval = 30f;
+    const float hardTimeInterval = 25f;
 
     public List<Recipe> requests;
 
@@ -54,15 +54,26 @@ public class Recipes : Persistent<Recipes>
             iceCream,
             noodle,
             pudding,
-            pancakes
+            pancakes,
+            frenchToast
         };
 
         hard = new List<Recipe>
         {
+            friedEgg,
+            iceCream,
             noodle,
             pudding,
+            pudding,
+            pudding,
             pancakes,
-            cake
+            pancakes,
+            pancakes,
+            frenchToast,
+            frenchToast,
+            frenchToast,
+            cake,
+            cake,
         };
     }
 
@@ -70,15 +81,15 @@ public class Recipes : Persistent<Recipes>
     {
         if (overallTime < easyToMediumTime)
         {
-            CreateRequest(easyTimeInterval, easy);
+            CreateRequest(easyTimeInterval, easy, "easy");
         }
         else if (overallTime < mediumToHard)
         {
-            CreateRequest(mediumTimeInterval, medium);
+            CreateRequest(mediumTimeInterval, medium, "medium");
         }
         else
         {
-            CreateRequest(hardTimeInterval, hard);
+            CreateRequest(hardTimeInterval, hard, "hard");
         }
 
         for (var i = 0; i < canvas.childCount; i++)
@@ -133,7 +144,7 @@ public class Recipes : Persistent<Recipes>
         timeSinceRequest += Time.deltaTime;
     }
 
-    void CreateRequest(float timeInterval, List<Recipe> recipes)
+    void CreateRequest(float timeInterval, List<Recipe> recipes, string difficulty)
     {
         if (timeSinceRequest >= timeInterval)
         {
@@ -142,6 +153,7 @@ public class Recipes : Persistent<Recipes>
             if (requests.Count < 7)
             {
                 var randomIndex = UnityEngine.Random.Range(0, recipes.Count);
+                Debug.Log(difficulty);
                 requests.Add(recipes[randomIndex]);
             }
         }
