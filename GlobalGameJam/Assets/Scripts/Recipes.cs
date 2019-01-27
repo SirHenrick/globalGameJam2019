@@ -122,7 +122,6 @@ public class Recipes : Persistent<Recipes>
                     if (j == index)
                     {
                         recipeRequest.SetActive(true);
-                        Debug.Log(recipe.result.name);
                     }
                     else recipeRequest.SetActive(false);
                 }
