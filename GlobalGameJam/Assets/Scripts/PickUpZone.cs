@@ -8,8 +8,7 @@ public class PickUpZone : MonoBehaviour
     float spriteTimer = 0f;
 
     // Attributes
-    const float spriteAppearDuration = .15f;
-    const float grabSize = 1.5f;
+    const float grabSize = 2f;
 
     public LayerMask itemLayerMask;
     public LayerMask cabinetLayerMask;
@@ -38,14 +37,6 @@ public class PickUpZone : MonoBehaviour
         else NearestItem = null;
 
         if (NearestItem != null && player.GetComponent<Player>().HeldItem == null)
-            spriteTimer += Time.deltaTime;
-        else
-        {
-            spriteRenderer.enabled = false;
-            spriteTimer = 0f;
-        }
-
-        if (spriteTimer >= spriteAppearDuration)
         {
             spriteRenderer.enabled = true;
 
@@ -58,6 +49,10 @@ public class PickUpZone : MonoBehaviour
             else if (facing.y > 0)
                 transform.localScale = new Vector2(1, 1);
             else transform.localScale = new Vector2(1, -1);
+        }
+        else
+        {
+            spriteRenderer.enabled = false;
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Recipes : Persistent<Recipes>
 {
@@ -155,6 +156,10 @@ public class Recipes : Persistent<Recipes>
                 var randomIndex = UnityEngine.Random.Range(0, recipes.Count);
                 Debug.Log(difficulty);
                 requests.Add(recipes[randomIndex]);
+            }
+            else
+            {
+                SceneManager.LoadScene("Game Over");
             }
         }
     }

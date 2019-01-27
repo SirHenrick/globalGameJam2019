@@ -25,7 +25,7 @@ public class Mixer : MonoBehaviour
     // Attributes
     float cookDuration = 2f;
     float creationSpeed = .75f;
-    float startOffset = 3f;
+    float startOffset = 1f;
 
     public Sprite on;
     public Sprite onSecondSprite;
